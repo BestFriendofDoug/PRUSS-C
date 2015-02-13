@@ -321,8 +321,8 @@
 #endif
 
 /* Define __STDC_IEC_559__ and other similar macros.  */
-#include <bits/predefs.h>
-
+//#include <bits/predefs.h>
+#include <predefs.h>
 /* wchar_t uses ISO 10646-1 (2nd ed., published 2000-09-15) / Unicode 3.1.  */
 #define __STDC_ISO_10646__		200009L
 
@@ -354,7 +354,8 @@
 /* This is here only because every header file already includes this one.  */
 #ifndef __ASSEMBLER__
 # ifndef _SYS_CDEFS_H
-#  include <sys/cdefs.h>
+//#  include <sys/cdefs.h>
+#include <cdefs.h>
 # endif
 
 /* If we don't have __REDIRECT, prototypes will be missing if
@@ -386,7 +387,7 @@
    Get the definitions of all the appropriate `__stub_FUNCTION' symbols.
    <gnu/stubs.h> contains `#define __stub_FUNCTION' when FUNCTION is a stub
    that will always return failure (and set errno to ENOSYS).  */
-#include <gnu/stubs.h>
-
+//#include <gnu/stubs.h>
+#include <stubs.h>
 
 #endif	/* features.h  */
