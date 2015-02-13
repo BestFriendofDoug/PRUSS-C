@@ -33,7 +33,8 @@ __BEGIN_DECLS
 # define __need_NULL
 # include <stddef.h>
 
-# include <bits/types.h>
+//# include <bits/types.h>
+# include <types.h>
 # define __need_FILE
 # define __need___FILE
 #endif /* Don't need FILE.  */
