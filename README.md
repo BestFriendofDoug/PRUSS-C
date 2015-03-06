@@ -28,6 +28,7 @@ C Library for the BeagleBone (Black) Programmable Realtime Unit SubSystem
 ###Compiling and Executing example GPIO program:
 #####The following commands should compile everything and start the program running
     
+    git clone https://github.com/BestFriendofDoug/PRUSS-C.git
     cd /root/PRUSS-C
     ./run.sh
     
