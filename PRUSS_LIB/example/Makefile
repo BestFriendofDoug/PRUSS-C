@@ -1,28 +1,29 @@
-CC = clpru
-DEVICE=am335x
-CFLAGS = --silicon_version=3 -o1 -D$(DEVICE)
-HEXBIN = hexpru
-PRU_COMP_PATH = ${PRU_BASE_PATH}/ARMLinuxA8
-
-PRU_C_DIR = -I${PRU_COMP_PATH}/lib \
-	    -I${PRU_COMP_PATH}/include \
-	    -I${PRU_BASE_PATH}/AM335X_StarterWare_02_00_01_01/include \
-	    -I${PRU_BASE_PATH}/AM335X_StarterWare_02_00_01_01/include/arm7a \
-	    -I${PRU_BASE_PATH}/AM335X_StarterWare_02_00_01_01/include/hw \
-	    -I${PRU_BASE_PATH}/AM335X_StarterWare_02_00_01_01/platform/beaglebone
-
-DRIVER_DIR = ${PRU_BASE_PATH}/AM335X_StarterWare_02_00_01_01/drivers
-SRC = $(wildcard ${DRIVER_DIR}/*.c) blinkled.c
-OUT = blinkled.out
-CMD = ${PRU_BASE_PATH}/ARMLinuxA8/example/AM3359_PRU.cmd
-BUILD_DIR = build
-
-$(BUILD_DIR)/$(OUT):$(SRC)
-	mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) $(PRU_C_DIR) $^ -z $(CMD) -o $@ -m $(OUT).map
-	rm -rf *.out *.map *.obj
-	$(HEXBIN) $(PRU_COMP_PATH)/bin.cmd $@
-	cp *.bin $(BUILD_DIR)
-	rm -rf *.bin
+CC := clpru
+LD := lnkpru
+HEXBIN := hexpru
+ 
+SWDIR = /usr/share/pru_am335x_starterware
+CGTDIR = /usr/share/ti/cgt-pru
+NEWDIR = /root/seantest/PRUSS-C/PRUSS_LIB/AM335X_StarterWare_02_00_01_01
+ 
+#INCLUDEDIR = -I$(SWDIR)/include -I$(SWDIR)/include/hw -I$(SWDIR)/include/pru -I$(CGTDIR)/include
+INCLUDEDIR = -I$(SWDIR)/include -I$(SWDIR)/include/hw -I$(SWDIR)/include/pru -I$(CGTDIR)/include -I$(NEWDIR)/include -I$(NEWDIR)/include/hw
+LIBDIR = -i$(SWDIR)/lib -i$(CGTDIR)/lib
+ 
+CMD = lnk.cmd
+OBJECTS = blinkled.o
+TARGET = blinkled.out
+ 
+CFLAGS := -O3 -Dam335x $(INCLUDEDIR)
+ 
+$(TARGET): $(OBJECTS)
+#	$(LD) $(CMD) -o $@ $(OBJECTS) $(LIBDIR) -llibstarterware.a
+	$(LD) -i/usr/share/ti/cgt-pru/lib -l$(CMD) -o $@ $(OBJECTS) $(LIBDIR) -i/root/seantest/PRUSS-C/PRUSS_LIB/AM335X_StarterWare_02_00_01_01/build/pru -llibstarterware.a
+	$(HEXBIN) $(TARGET) /root/bin.cmd
+%.o: %.c
+	$(CC) -c --output_file=$@ $< $(CFLAGS)
+ 
+.PHONY: clean
+ 
 clean:
-	rm -r build/
+	rm -f $(OBJECTS) $(TARGET)
