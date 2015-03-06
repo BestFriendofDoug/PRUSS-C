@@ -17,6 +17,6 @@ modprobe uio_pruss
 mv /root/PRUSS-C/overlay/KA-GPIO-Test-00A0.dtbo /lib/firmware
 #set device tree as live tree 
 echo KA-GPIO-Test:00A0 > /sys/devices/bone_capemgr.9/slots
-cd ../bin
+cd bin
 #execute blinkled program
 ./blinkled​
