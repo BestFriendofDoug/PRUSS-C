@@ -32,4 +32,5 @@ C Library for the BeagleBone (Black) Programmable Realtime Unit SubSystem
     cd /root/PRUSS-C
     chmod +x run.sh
     ./run.sh
+    ./blinkled
     
