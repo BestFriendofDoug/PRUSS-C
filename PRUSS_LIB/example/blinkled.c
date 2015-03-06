@@ -26,8 +26,8 @@ void main()
 	SYSCFG&=0xFFFFFFEF;
 	/*Start Main Code*/
 	int i;
-	GPIOModuleEndable(GPIO1);
-	PGIODirModeSet(GPIO1,28,GPIO_DIR_OUTPUT);
+	GPIOModuleEnable(GPIO1);
+	GPIODirModeSet(GPIO1,28,GPIO_DIR_OUTPUT);
 	while(1) {						//remove if an infinite loop is not needed
 	GPIOPinWrite(GPIO1, 28, GPIO_PIN_LOW);
 
