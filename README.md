@@ -30,5 +30,6 @@ C Library for the BeagleBone (Black) Programmable Realtime Unit SubSystem
     
     git clone https://github.com/BestFriendofDoug/PRUSS-C.git
     cd /root/PRUSS-C
+    chmod +x run.sh
     ./run.sh
     
