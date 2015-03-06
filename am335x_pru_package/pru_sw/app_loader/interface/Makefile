@@ -1,6 +1,6 @@
 ROOTDIR = ..
 TARGET = libprussdrv
-CROSS_COMPILE?=arm-angstrom-linux-gnueabi-
+CROSS_COMPILE?=arm-linux-gnueabihf-
 PREFIX?=/usr/local
 
 CC = $(CROSS_COMPILE)gcc
