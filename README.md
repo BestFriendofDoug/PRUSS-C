@@ -24,8 +24,8 @@ C Library for the BeagleBone (Black) Programmable Realtime Unit SubSystem
     Issue #4:
         In the /root/PRUSS-C/PRUSS_LIB/example/Makefile you need to make sure the CGTDIR variable is set to the path where you have your libc.a saved
 
-###Compiling and Executing example GPIO program
-    The following commands should compile everything and start the program running
+###Compiling and Executing example GPIO program:
+#####The following commands should compile everything and start the program running
     
     cd /root/PRUSS-C
     ./run.sh
