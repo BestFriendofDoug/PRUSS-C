@@ -1,3 +1,4 @@
+cp /root/PRUSS-C/am335x_pru_package/pru_sw/app_loader/lib/libprussdrv.so /usr/local/lib
 cd /PRUSS-C/PRUSS_LIB/example
 make
 mv data.bin text.bin /root/PRUSS-C/am335x_pru_package/pru_sw/example_apps
