@@ -1,5 +1,3 @@
-#To make sure we have the libprussdrv.so file in the correct directories, perform below command
-cp /root/PRUSS-C/am335x_pru_package/pru_sw/app_loader/lib/libprussdrv.so /usr/local/lib
 #Change directories as seen below, making sure the paths in the Makefile are correct, as noted in issue #2
 cd /root/PRUSS-C/PRUSS_LIB/example
 make
