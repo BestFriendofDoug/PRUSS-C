@@ -4,6 +4,7 @@ PRUSS-C
 C Library for the BeagleBone (Black) Programmable Realtime Unit SubSystem
 
 ###Repo Explanation
+####This fork is a result of wanting to use StarterWare capabilities for a project, which the BeaglePilot team has done with their blinkled.c test. I have attempted to change their example to set a GPIO pin high and low, instead of blinking the user LEDs. I have written a device tree (found in /PRUSS-C/overlay) that should set up P9.12 to be an output for my program, but so far I am not getting any output to the pin. The blinkled.c program compiles and runs fine, but no output to the pins is seen. 
 
 ###Issues to consider before running:
     Issue #1:
