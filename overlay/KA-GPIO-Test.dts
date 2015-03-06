@@ -1,0 +1,50 @@
+/*  
+* Copyright (C) 2012 Texas Instruments Incorporated - http://www.ti.com/
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Purpose License Version 2 as
+* published by the Free Software Foundation
+*
+* Original from: github.com/jadonk/validation-scripts/blob/master/test-capemgr/ 
+*
+* Modified by Derek Molloy and Karl Anderson for the example on www.derekmolloy.ie
+* that maps GPIO pins for the example
+*/
+
+/dts-v1/;
+/plugin/;
+
+/{
+       compatible = "ti,beaglebone", "ti,beaglebone-black";
+       part-number = "DM-GPIO-Test";
+       version = "00A0";
+       exclusive-use=
+       "P9.12", "pruss";
+       
+       fragment@0 {
+             target = <&am33xx_pinmux>;
+            
+             __overlay__ {
+                  pinctrl_test: DM_GPIO_Test_Pins {
+			pinctrl-single,pins = <
+
+				0x078 0x07  /* P9_12 60 OUTPUT MODE7 - The LED Output */
+                               /* OUTPUT  GPIO(mode7) 0x07 pulldown, 0x17 pullup, 0x?f no pullup/down */
+
+			>;
+		  };
+             };
+       };
+
+	fragment@1{  
+		target = <&pruss>;  
+    		__overlay__ {  
+      			status = "okay"; 
+      			pinctrl-names = "default";
+        		pinctrl-0 = <&pinctrl_test>;
+        		gpios         = <
+			&gpio2 28 0
+			>;
+    		};  
+  	};  
+};
