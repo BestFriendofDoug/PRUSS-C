@@ -13,10 +13,12 @@ make
 export LD_LIBRARY_PATH=/usr/local/lib
 #initiate the uio_pruss
 modprobe uio_pruss
-#move the device tree overlay into the correct directory
+#compile the device tree overlay and move it into the correct directory
+cd /root/PRUSS-C/overlay
+dtc -O dtb -o KA-GPIO-Test-00A0.dtbo -b o -@ KA-GPIO-Test.dts
 mv /root/PRUSS-C/overlay/KA-GPIO-Test-00A0.dtbo /lib/firmware
 #set device tree as live tree 
 echo KA-GPIO-Test:00A0 > /sys/devices/bone_capemgr.9/slots
-cd bin
+cd /root/PRUSS-C/am335x_pru_package/pru_sw/example_apps/bin
 #execute blinkled program
 ./blinkled​
