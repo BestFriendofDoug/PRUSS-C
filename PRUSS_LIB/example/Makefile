@@ -19,7 +19,7 @@ CFLAGS := -O3 -Dam335x $(INCLUDEDIR)
 $(TARGET): $(OBJECTS)
 #	$(LD) $(CMD) -o $@ $(OBJECTS) $(LIBDIR) -llibstarterware.a
 	$(LD) -i/usr/share/ti/cgt-pru/lib -l$(CMD) -o $@ $(OBJECTS) $(LIBDIR) -i/root/seantest/PRUSS-C/PRUSS_LIB/AM335X_StarterWare_02_00_01_01/build/pru -llibstarterware.a
-	$(HEXBIN) $(TARGET) /root/bin.cmd
+	$(HEXBIN) $(TARGET) /root/PRUSS-C/cmd/bin.cmd
 %.o: %.c
 	$(CC) -c --output_file=$@ $< $(CFLAGS)
  
