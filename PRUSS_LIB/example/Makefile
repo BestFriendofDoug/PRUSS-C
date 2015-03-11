@@ -3,7 +3,8 @@ LD := lnkpru
 HEXBIN := hexpru
  
 SWDIR = /usr/share/pru_am335x_starterware
-CGTDIR = /usr/share/ti/cgt-pru
+#CGTDIR = /usr/share/ti/cgt-pru
+CGTDIR = /usr/lib/arm-linux-gnueabihf
 NEWDIR = /root/PRUSS-C/PRUSS_LIB/AM335X_StarterWare_02_00_01_01
  
 INCLUDEDIR = -I$(SWDIR)/include -I$(SWDIR)/include/hw -I$(SWDIR)/include/pru -I$(CGTDIR)/include -I$(NEWDIR)/include -I$(NEWDIR)/include/hw
