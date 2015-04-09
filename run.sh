@@ -1,3 +1,9 @@
+#First, we need to make sure we have libstarterware.a, which is a package of the starterware files. It is created using 
+#Makefile below
+git clone https://gist.github.com/d3e761ade54df23f04a6.git
+mv Makefile /root/PRUSS-C/PRUSS_LIB/AM335X_StarterWare_02_00_01_01/
+cd /root/PRUSS-C/PRUSS_LIB/AM335X_StarterWare_02_00_01_01/
+make
 #Change directories as seen below, making sure the paths in the Makefile are correct, as noted in issue #2
 cd /root/PRUSS-C/PRUSS_LIB/example
 make
